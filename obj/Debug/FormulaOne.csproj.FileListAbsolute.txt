@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\FormulaOne\bin\Debug\FormulaOne.exe.config
+C:\Users\user\source\repos\FormulaOne\bin\Debug\FormulaOne.exe
+C:\Users\user\source\repos\FormulaOne\bin\Debug\FormulaOne.pdb
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.csprojAssemblyReference.cache
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.InitialScreen.resources
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.Properties.Resources.resources
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.csproj.GenerateResource.cache
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.exe
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.pdb
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.RedBullRing.resources
+C:\Users\user\source\repos\FormulaOne\obj\Debug\FormulaOne.Monaco.resources
