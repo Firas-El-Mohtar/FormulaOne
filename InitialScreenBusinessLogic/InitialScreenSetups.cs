@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace FormulaOne
 {
-    public class InitialScreenSetups : IInitialScreenSetups, Interfaces.IRedBullRingSetup
+    public class InitialScreenSetups : Interfaces.IRedBullRingSetup, IInitialScreenSetups
     {
-        public Team Myteam { get; set; }
-        public Driver Mydriver { get; set; }
-        public Car.Car Mycar { get; set; }
+        public Team MyTeam { get; set; }
+        public Driver MyDriver { get; set; }
+        public Car.Car MyCar { get; set; }
+        public TeamPrinciple tp { get; set; }
 
         IAccount account;
         public string CarSetup()
@@ -24,10 +25,9 @@ namespace FormulaOne
             return Constants.ClearOutSky;
         }
 
-        public Team MyTeam(Car.Car MyCar, Driver MyDriver, TeamPrinciple MyTeamPrinciple, string TeamName)
+        public void SettingMyTeam(string TeamName)
         {
-            Myteam = new Team(MyCar, MyDriver, MyTeamPrinciple, TeamName);
-            return Myteam;
+            MyTeam = new Team(MyCar, MyDriver, tp, TeamName);
         }
 
         public string PlaceFloatingBarriers()
@@ -35,19 +35,19 @@ namespace FormulaOne
             return Constants.PlaceBarriers;
         }
 
-        public Car.Car SetupCar(string chassis, string engine, string kit)
+        public void SetupCar(string chassis, string engine, string kit)
         {
-            return new Car.Car(chassis, engine, kit);
+            MyCar = new Car.Car(chassis, engine, kit);
         }
 
-        public Driver SetupDriver(string name, int age, string gender, int championshipswon, string nickname)
+        public void SetupDriver(string name, int age, string gender, int championshipswon, string nickname)
         {
-            return new Driver(new DriverSalary(), name, age, gender, championshipswon, nickname);
+            MyDriver = new Driver(new DriverSalary(), name, age, gender, championshipswon, nickname);
         }
 
-        public TeamPrinciple SetupTeamPrinciple(string name, int age, string gender, string education, int yearsOE)
+        public void SetupTeamPrinciple(string name, int age, string gender, string education, int yearsOE)
         {
-            return new TeamPrinciple(new TeamPrincipleSalaryCalculator(), name, age, gender, education, yearsOE);
+            tp = new TeamPrinciple(new TeamPrincipleSalaryCalculator(), name, age, gender, education, yearsOE);
         }
         private void SetAccount(IAccount Account)
         {
@@ -59,7 +59,7 @@ namespace FormulaOne
             StringBuilder message = new StringBuilder();
 
             message.Append(CarSetup());
-            message.Append(Myteam.MyDriver.GetDriverNumber().ToString());
+            message.Append(MyTeam.MyDriver.GetDriverNumber().ToString());
             message.Append(" should be ready");
             message.AppendLine();
             message.Append(PlaceFloatingBarriers());
@@ -69,10 +69,10 @@ namespace FormulaOne
             message.Append(Constants.GivenEmail);
             message.AppendLine();
             SetAccount(Factory.CreateDriverAccount());
-            message.Append(account.CreateEmail(Myteam.MyDriver));
+            message.Append(account.CreateEmail(MyTeam.MyDriver));
             message.AppendLine();
             SetAccount(Factory.CreateTeamPrincipleAccout());
-            message.Append(account.CreateEmail(Myteam.MyTeamPrinciple));
+            message.Append(account.CreateEmail(MyTeam.MyTeamPrinciple));
             return message.ToString();
         }
     }

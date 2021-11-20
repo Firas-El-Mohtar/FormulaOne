@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace FormulaOne
 {
-    public partial class InitialScreen : Form, Interfaces.IRedBullRingSetup
+    public partial class InitialScreen : Form
     {
-        private Team MyTeam;
-        IAccount account;
+        //private Team MyTeam;
+        //IAccount account;
         InitialScreenSetups setup = new InitialScreenSetups();
         public InitialScreen()
         {
@@ -55,12 +55,12 @@ namespace FormulaOne
         {
 
             //MyTeam = BuildMyTeam();
-            MyTeam = BuildMyTeam();
+            BuildMyTeam();
             DialogResult result = TransitionalScreen();
 
             if (result == DialogResult.OK)
             {
-                RedBullRing redbullring = new RedBullRing(MyTeam);
+                RedBullRing redbullring = new RedBullRing(setup.MyTeam);
                 redbullring.Show();
                 Hide();
             }
@@ -70,59 +70,26 @@ namespace FormulaOne
             }       
 
         }
-        private Team BuildMyTeam()
+        private void BuildMyTeam()
         {
-            // Finally assembling the team and getting ready for the grand Prix
-            return setup.MyTeam(SetUpCar(), SetUpDriver(), SetUpTeamPrinciple(), TeamName.Text);
+            //My Team is is build inside the InitialScreenSetup
+            SetUpDriver();
+            SetUpTeamPrinciple();
+            SetUpCar();
+            setup.SettingMyTeam(TeamName.Text);
         }
 
-      
-
-        public string ConfiguringFlightPath()
-        {
-            return Constants.ClearOutSky;
-        }
-
-        public string PlaceFloatingBarriers()
-        {
-            return Constants.PlaceBarriers;
-        }
-
-        public string CarSetup()
-        {
-            return Constants.RedBullRingSettingUpCar;
-        }
+     
         private DialogResult TransitionalScreen()
         {
-            StringBuilder message = new StringBuilder();
-
-            message.Append(CarSetup());
-            message.Append(MyTeam.MyDriver.GetDriverNumber().ToString());
-            message.Append(" should be ready");
-            message.AppendLine();
-            message.Append(PlaceFloatingBarriers());
-            message.AppendLine();
-            message.Append(ConfiguringFlightPath());
-            message.AppendLine();
-            message.Append(Constants.GivenEmail);
-            message.AppendLine();
-            SetAccount(Factory.CreateDriverAccount());
-            message.Append(account.CreateEmail(MyTeam.MyDriver));
-            message.AppendLine();
-            SetAccount(Factory.CreateTeamPrincipleAccout());
-            message.Append(account.CreateEmail(MyTeam.MyTeamPrinciple));
-
-            DialogResult result = MessageBox.Show(message.ToString(), Constants.RedBullRingSetupTitle);
+           
+            DialogResult result = MessageBox.Show(setup.TheWholeSetup(), Constants.RedBullRingSetupTitle);
             
             return result;
         }
 
-        private void SetAccount(IAccount Account)
-        {
-            account = Account;
-        }
 
-        private People.Driver SetUpDriver()
+        private void SetUpDriver()
         {
             string Name = DriverNameText.Text;
             People.Gender PrivateGender = (People.Gender)CBDriverGender.SelectedIndex;
@@ -131,10 +98,11 @@ namespace FormulaOne
             int championshipswon = int.Parse(DriverChamp.Text);
             string Nickname = DriverNickname.Text;
 
-            return setup.SetupDriver(Name, age, Gender, championshipswon, Nickname);
+            setup.SetupDriver(Name, age, Gender, championshipswon, Nickname);
+            //return setup.SetupDriver(Name, age, Gender, championshipswon, Nickname);
         }
 
-        private People.TeamPrinciple SetUpTeamPrinciple()
+        private void SetUpTeamPrinciple()
         {
             string tname = TeamPricncipleName.Text;
             People.Gender PrivateTeampGender = (People.Gender)CBTeamPrincipleGender.SelectedIndex;
@@ -142,11 +110,11 @@ namespace FormulaOne
             int tage = int.Parse(TeamPrincipleAge.Text);
             string education = TeamPrincipleEducation.Text;
             int yearsOE = int.Parse(TeamPrincipleYOE.Text);
-
-            return setup.SetupTeamPrinciple(tname, tage, tgender, education, yearsOE);
+            setup.SetupTeamPrinciple(tname, tage, tgender, education, yearsOE);
+            //return setup.SetupTeamPrinciple(tname, tage, tgender, education, yearsOE);
         }
 
-        private Car.Car SetUpCar()
+        private void SetUpCar()
         {
             Car.Chassis PrivateChassis = (Car.Chassis)CBCarChassis.SelectedIndex;
             string StringChassis = PrivateChassis.ToString();
@@ -154,8 +122,8 @@ namespace FormulaOne
             string StringEngine = PrivateEngine.ToString();
             Car.BodyKit PrivateKit = (Car.BodyKit)CBABodyKit.SelectedIndex;
             string StringKit = PrivateKit.ToString();
-
-            return setup.SetupCar(StringChassis, StringEngine, StringKit);
+            setup.SetupCar(StringChassis, StringEngine, StringKit);
+            //return setup.SetupCar(StringChassis, StringEngine, StringKit);
         }
 
 
