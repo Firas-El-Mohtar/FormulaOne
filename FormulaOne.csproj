@@ -50,7 +50,7 @@
     <Compile Include="Car\Car.cs" />
     <Compile Include="Car\Chassis.cs" />
     <Compile Include="Accounts\DriverAccount.cs" />
-    <Compile Include="Accounts\Account.cs" />
+    <Compile Include="Accounts\IAccount.cs" />
     <Compile Include="Person\DriverNumber.cs" />
     <Compile Include="Salaries\DriverSalary.cs" />
     <Compile Include="Salaries\IDriverSalary.cs" />
