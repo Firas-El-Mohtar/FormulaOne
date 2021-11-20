@@ -13,6 +13,7 @@ namespace FormulaOne
     public partial class InitialScreen : Form, Interfaces.IRedBullRingSetup
     {
         private Team MyTeam;
+        Account account;
         public InitialScreen()
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace FormulaOne
         {
             // Setting up the driver from the collected Data
             People.Driver MyDriver = SetUpDriver();
+            
             // Setting Up the Team Principle 
             People.TeamPrinciple  MyTeamPrinciple = SetUpTeamPrinciple();
             // Building the car 
@@ -56,6 +58,7 @@ namespace FormulaOne
             // Finally assembling the team and getting ready for the grand Prix
             MyTeam = new Team(MyCar, MyDriver, MyTeamPrinciple, TeamName.Text);
 
+   
             DialogResult result = TransitionalScreen();
 
             if(result == DialogResult.OK)
@@ -80,7 +83,7 @@ namespace FormulaOne
             int championshipswon = int.Parse(DriverChamp.Text);
             string Nickname = DriverNickname.Text;
 
-            return new People.Driver(Name, age, Gender, championshipswon, Nickname);
+            return new People.Driver(new People.DriverSalary(), Name, age, Gender, championshipswon, Nickname);
         }
 
         private People.TeamPrinciple SetUpTeamPrinciple()
@@ -92,7 +95,7 @@ namespace FormulaOne
             string education = TeamPrincipleEducation.Text;
             int yearsOE = int.Parse(TeamPrincipleYOE.Text);
 
-            return new People.TeamPrinciple(tname, tage, tgender, education, yearsOE);
+            return new People.TeamPrinciple(new People.TeamPrincipleSalaryCalculator(),tname, tage, tgender, education, yearsOE);
         }
             
         private Car.Car SetUpCar()
@@ -126,14 +129,29 @@ namespace FormulaOne
             StringBuilder message = new StringBuilder();
 
             message.Append(CarSetup());
+            message.Append(MyTeam.MyDriver.GetDriverNumber().ToString());
+            message.Append(" should be ready");
             message.AppendLine();
             message.Append(PlaceFloatingBarriers());
             message.AppendLine();
             message.Append(ConfiguringFlightPath());
+            message.AppendLine();
+            message.Append(Constants.GivenEmail);
+            message.AppendLine();
+            SetAccount(Factory.CreateDriverAccount());
+            message.Append(account.CreateEmail(MyTeam.MyDriver));
+            message.AppendLine();
+            SetAccount(Factory.CreateTeamPrincipleAccout());
+            message.Append(account.CreateEmail(MyTeam.MyTeamPrinciple));
 
             DialogResult result = MessageBox.Show(message.ToString(), Constants.RedBullRingSetupTitle);
             
             return result;
+        }
+
+        private void SetAccount(Account Account)
+        {
+            account = Account;
         }
         
     }

@@ -117,7 +117,8 @@ namespace FormulaOne
             assignPoints.Append(MyTeam.Points);
             assignPoints.Append(" Points To ");
             assignPoints.Append(MyTeam.Name);
-
+            assignPoints.AppendLine();
+            assignPoints.Append(TeamSalaries());
             return assignPoints.ToString();
         }
         private DialogResult OpenDialog()
@@ -131,6 +132,17 @@ namespace FormulaOne
 
             return result;
         }
-
+        private string TeamSalaries()
+        {
+            StringBuilder salary = new StringBuilder();
+            salary.Append(MyTeam.MyTeamPrinciple.Name);
+            salary.Append(Constants.EnjoySalary);
+            salary.Append(MyTeam.MyTeamPrinciple.GetSalary());
+            salary.AppendLine();
+            salary.Append(MyTeam.MyDriver.Name);
+            salary.Append(Constants.EnjoySalary);
+            salary.Append(MyTeam.MyDriver.GetSalary());
+            return salary.ToString();
+        }
     }
 }

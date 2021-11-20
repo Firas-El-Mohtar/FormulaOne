@@ -15,7 +15,7 @@ namespace FormulaOne
         public static string GameOver = " Game Over!!";
         public static string Congratulations = "Congratulations!!! ";
         public static string RedBullRingSetupTitle = "Setting Up The RedBull Ring";
-        public static string RedBullRingSettingUpCar = "We're Changing the car for more lift and less downforce, Rember Redbull gives you wings!";
+        public static string RedBullRingSettingUpCar = "We're Changing the car for more lift and less downforce, Rember Redbull gives you wings! Car number ";
         public static string ClearOutSky = "Clearing Out The Sky";
         public static string PlaceBarriers = "Placing Barriers";
         public static string RedBullStuntText = " Now heads to the City Center to Perform the Traditional Redbull Donuts.";
@@ -26,5 +26,7 @@ namespace FormulaOne
         public static string HighDownForce = "Teams Are setting up high downforce aerokits. ";
         public static string DriverPool = " Is now diving into the Pool ";
         public static string SettingUpMonaco = "Setting up Monaco";
+        public static string GivenEmail = "The Following emails shall be used to communicate with the Drivers and Team Principle";
+        public static string EnjoySalary = " will defenetly enjoy his salary of";
     }
 }

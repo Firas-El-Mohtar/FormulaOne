@@ -31,6 +31,19 @@ namespace ExtensionMethods
             sb.Insert(index, secondSB);
             return sb.ToString();
         }
+        public static string ReturnFirstName(this string name)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(char letter in name)
+            {
+                if(letter == ' ')
+                {
+                    break;
+                }
+                sb.Append(letter);
+            }
+            return sb.ToString();
+        }
 
 
 
