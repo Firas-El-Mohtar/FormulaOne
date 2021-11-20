@@ -13,7 +13,7 @@ namespace FormulaOne
     public partial class InitialScreen : Form, Interfaces.IRedBullRingSetup
     {
         private Team MyTeam;
-        Account account;
+        IAccount account;
         public InitialScreen()
         {
             InitializeComponent();
@@ -149,7 +149,7 @@ namespace FormulaOne
             return result;
         }
 
-        private void SetAccount(Account Account)
+        private void SetAccount(IAccount Account)
         {
             account = Account;
         }

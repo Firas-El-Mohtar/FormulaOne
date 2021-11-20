@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FormulaOne
 {
-    public class DriverAccount : Account
+    public class DriverAccount : IAccount
     {
-        public override string CreateEmail(People.Person person)
+        public string CreateEmail(People.Person person)
         {
             return $"{ExtensionMethods.ExtensionMethods.ReturnFirstName(person.Name)}.Driver.FormulaOne@gmail.com";
         }

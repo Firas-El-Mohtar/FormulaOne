@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FormulaOne
 {
-    public class TeamPrincipleAccount : Account
+    public class TeamPrincipleAccount : IAccount
     {
-        public override string CreateEmail(People.Person person)
+        public string CreateEmail(People.Person person)
         {
             return $"{person.Name.Substring(0,1)}.Managment.FormulaOne@gmail.com";
         }
