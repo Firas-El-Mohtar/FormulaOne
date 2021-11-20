@@ -51,7 +51,10 @@
     <Compile Include="Car\Chassis.cs" />
     <Compile Include="Accounts\DriverAccount.cs" />
     <Compile Include="Accounts\IAccount.cs" />
+    <Compile Include="InitialScreenBusinessLogic\IInitialScreenSetups.cs" />
+    <Compile Include="InitialScreenBusinessLogic\InitialScreenSetups.cs" />
     <Compile Include="Person\DriverNumber.cs" />
+    <Compile Include="RedBullRingBusinessLogic\RedbullRingLogic.cs" />
     <Compile Include="Salaries\DriverSalary.cs" />
     <Compile Include="Salaries\IDriverSalary.cs" />
     <Compile Include="Salaries\ITeamPrincipleSalaryCalculator.cs" />
@@ -113,6 +116,7 @@
       <DependentUpon>RedBullRing.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ProjectClassDiagram.cd" />
+    <None Include="ProjectDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

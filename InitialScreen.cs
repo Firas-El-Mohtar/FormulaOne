@@ -14,23 +14,14 @@ namespace FormulaOne
     {
         private Team MyTeam;
         IAccount account;
+        InitialScreenSetups setup = new InitialScreenSetups();
         public InitialScreen()
         {
             InitializeComponent();
             InitializeDropBoxes();
-            string Teal = CustomColors.ColorList[Constants.Teal];
-            string Red = CustomColors.ColorList[Constants.Red];
             // Control all the Comboboxes that Begin with the string CB
-            var comboBox = Controls
-                .OfType<ComboBox>()
-                .Where(x => x.Name.StartsWith("CB"));
-            // Loop through them and set the color of the foreground text to Teal
-            foreach(var cb in comboBox)
-            {
-                cb.ForeColor = SetViewColor(Teal);
-            }
-            AttentionText.ForeColor = SetViewColor(Red);
-
+            SetupComboBoxes();
+          
         }
         private Color SetViewColor(string Color)
         {
@@ -45,23 +36,29 @@ namespace FormulaOne
             CBCarEngine.Items.AddRange(Enum.GetNames(typeof(Car.Engine)));
             CBABodyKit.Items.AddRange(Enum.GetNames(typeof(Car.BodyKit)));
         }
+        private void SetupComboBoxes()
+        {
+            string Teal = CustomColors.ColorList[Constants.Teal];
+            string Red = CustomColors.ColorList[Constants.Red];
+            var comboBox = Controls
+              .OfType<ComboBox>()
+              .Where(x => x.Name.StartsWith("CB"));
+            // Loop through them and set the color of the foreground text to Teal
+            foreach (var cb in comboBox)
+            {
+                cb.ForeColor = SetViewColor(Teal);
+            }
+            AttentionText.ForeColor = SetViewColor(Red);
 
+        }
         private void Done_Click(object sender, EventArgs e)
         {
-            // Setting up the driver from the collected Data
-            People.Driver MyDriver = SetUpDriver();
-            
-            // Setting Up the Team Principle 
-            People.TeamPrinciple  MyTeamPrinciple = SetUpTeamPrinciple();
-            // Building the car 
-            Car.Car MyCar = SetUpCar();
-            // Finally assembling the team and getting ready for the grand Prix
-            MyTeam = new Team(MyCar, MyDriver, MyTeamPrinciple, TeamName.Text);
 
-   
+            //MyTeam = BuildMyTeam();
+            MyTeam = BuildMyTeam();
             DialogResult result = TransitionalScreen();
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 RedBullRing redbullring = new RedBullRing(MyTeam);
                 redbullring.Show();
@@ -70,45 +67,16 @@ namespace FormulaOne
             else
             {
                 Close();
-            }
-            
+            }       
 
         }
-        private People.Driver SetUpDriver()
+        private Team BuildMyTeam()
         {
-            string Name = DriverNameText.Text;
-            People.Gender PrivateGender = (People.Gender)CBDriverGender.SelectedIndex;
-            string Gender = PrivateGender.ToString();
-            int age = int.Parse(DriverAgeText.Text);
-            int championshipswon = int.Parse(DriverChamp.Text);
-            string Nickname = DriverNickname.Text;
-
-            return new People.Driver(new People.DriverSalary(), Name, age, Gender, championshipswon, Nickname);
+            // Finally assembling the team and getting ready for the grand Prix
+            return setup.MyTeam(SetUpCar(), SetUpDriver(), SetUpTeamPrinciple(), TeamName.Text);
         }
 
-        private People.TeamPrinciple SetUpTeamPrinciple()
-        {
-            string tname = TeamPricncipleName.Text;
-            People.Gender PrivateTeampGender = (People.Gender)CBTeamPrincipleGender.SelectedIndex;
-            string tgender = PrivateTeampGender.ToString();
-            int tage = int.Parse(TeamPrincipleAge.Text);
-            string education = TeamPrincipleEducation.Text;
-            int yearsOE = int.Parse(TeamPrincipleYOE.Text);
-
-            return new People.TeamPrinciple(new People.TeamPrincipleSalaryCalculator(),tname, tage, tgender, education, yearsOE);
-        }
-            
-        private Car.Car SetUpCar()
-        {
-            Car.Chassis PrivateChassis = (Car.Chassis)CBCarChassis.SelectedIndex;
-            string StringChassis = PrivateChassis.ToString();
-            Car.Engine PrivateEngine = (Car.Engine)CBCarEngine.SelectedIndex;
-            string StringEngine = PrivateEngine.ToString();
-            Car.BodyKit PrivateKit = (Car.BodyKit)CBABodyKit.SelectedIndex;
-            string StringKit = PrivateKit.ToString();
-
-           return new Car.Car(StringChassis, StringEngine, StringKit);
-        }
+      
 
         public string ConfiguringFlightPath()
         {
@@ -153,6 +121,43 @@ namespace FormulaOne
         {
             account = Account;
         }
-        
+
+        private People.Driver SetUpDriver()
+        {
+            string Name = DriverNameText.Text;
+            People.Gender PrivateGender = (People.Gender)CBDriverGender.SelectedIndex;
+            string Gender = PrivateGender.ToString();
+            int age = int.Parse(DriverAgeText.Text);
+            int championshipswon = int.Parse(DriverChamp.Text);
+            string Nickname = DriverNickname.Text;
+
+            return setup.SetupDriver(Name, age, Gender, championshipswon, Nickname);
+        }
+
+        private People.TeamPrinciple SetUpTeamPrinciple()
+        {
+            string tname = TeamPricncipleName.Text;
+            People.Gender PrivateTeampGender = (People.Gender)CBTeamPrincipleGender.SelectedIndex;
+            string tgender = PrivateTeampGender.ToString();
+            int tage = int.Parse(TeamPrincipleAge.Text);
+            string education = TeamPrincipleEducation.Text;
+            int yearsOE = int.Parse(TeamPrincipleYOE.Text);
+
+            return setup.SetupTeamPrinciple(tname, tage, tgender, education, yearsOE);
+        }
+
+        private Car.Car SetUpCar()
+        {
+            Car.Chassis PrivateChassis = (Car.Chassis)CBCarChassis.SelectedIndex;
+            string StringChassis = PrivateChassis.ToString();
+            Car.Engine PrivateEngine = (Car.Engine)CBCarEngine.SelectedIndex;
+            string StringEngine = PrivateEngine.ToString();
+            Car.BodyKit PrivateKit = (Car.BodyKit)CBABodyKit.SelectedIndex;
+            string StringKit = PrivateKit.ToString();
+
+            return setup.SetupCar(StringChassis, StringEngine, StringKit);
+        }
+
+
     }
 }

@@ -8,6 +8,10 @@ namespace FormulaOne
 {
     public static class Factory
     {
+        public static InitialScreenSetups CreateInitialScreenSetup()
+        {
+            return new InitialScreenSetups();
+        }
         public static DriverAccount CreateDriverAccount()
         {
             return new DriverAccount();
@@ -16,5 +20,6 @@ namespace FormulaOne
         {
             return new TeamPrincipleAccount();
         }
+
     }
 }

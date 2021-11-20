@@ -4,35 +4,56 @@
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAMgAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Team.cs</FileName>
+      <FileName>Team\Team.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="People.Person">
     <Position X="1.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAEAAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>Person.cs</FileName>
+      <FileName>Person\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="People.TeamPrinciple">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAA=</HashCode>
-      <FileName>TeamPrinciple.cs</FileName>
+      <HashCode>AAAAAAQAAAAAAAAAAAACAAAAAAAAAAAAAIAgAAEAAAA=</HashCode>
+      <FileName>Person\TeamPrinciple.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="People.Driver">
     <Position X="2.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAEAAAA=</HashCode>
-      <FileName>Driver.cs</FileName>
+      <HashCode>AAABgAAAAAAAAAAIAAACAAAAQAAAAAAAAEAAAAEAAAA=</HashCode>
+      <FileName>Person\Driver.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="FormulaOne.IGrandPrixPodiumRitual">
     <Position X="5" Y="3.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>IAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IGrandPrixPodiumRitual.cs</FileName>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IGrandPrixPodiumRitual.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FormulaOne.IGrandPrixSetup" Collapsed="true">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IGrandPrixSetup.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FormulaOne.Interfaces.IMonacoSetup" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Interfaces\IMonacoSetup.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FormulaOne.Interfaces.IRedBullRingPodiumRitual" Collapsed="true">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IRedBullRingPodiumRitual.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

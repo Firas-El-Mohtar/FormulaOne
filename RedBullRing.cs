@@ -10,36 +10,34 @@ using System.Windows.Forms;
 
 namespace FormulaOne
 {
-    public partial class RedBullRing : Form, Interfaces.IRedBullRingPodiumRitual
+    public partial class RedBullRing : Form
     {
-
-        int BarrierSpeed = 15;
-        int Gravity = 7;
-        int ScoreValue = 0;
-        private Team MyTeam;
+        //private Team MyTeam;
+        RedbullRingLogic rbl;
 
         public RedBullRing(Team team)
         {
-            MyTeam = team;
+            rbl = new RedbullRingLogic();
+            rbl.MyTeam = team;
             InitializeComponent();
         }
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-            Car.Top += Gravity;
-            BarrierBottom.Left -= BarrierSpeed;
-            BarrierTop.Left -= BarrierSpeed;
+            Car.Top += rbl.Gravity;
+            BarrierBottom.Left -= rbl. BarrierSpeed;
+            BarrierTop.Left -= rbl.BarrierSpeed;
 
-            Score.Text = MyTeam.MyDriver.Name + Constants.Score + ScoreValue;
+            Score.Text = rbl.MyTeam.MyDriver.Name + Constants.Score + rbl.ScoreValue;
             if (BarrierBottom.Left < -50)
             {
                 BarrierBottom.Left = 630;
-                ScoreValue++;
+                rbl.ScoreValue++;
             }
             if (BarrierTop.Left < -50)
             {
                 BarrierTop.Left = 730;
-                ScoreValue++;
+                rbl.ScoreValue++;
             }
             if (Car.Bounds.IntersectsWith(BarrierBottom.Bounds) ||
                 Car.Bounds.IntersectsWith(BarrierTop.Bounds) ||
@@ -49,9 +47,9 @@ namespace FormulaOne
                 EndGame();
             }
 
-            if (ScoreValue < 100)
+            if (rbl.ScoreValue < 100)
             {
-                BarrierSpeed = ScoreValue + 4 * 2; ;
+                rbl.BarrierSpeed = rbl.ScoreValue + 4 * 2; ;
             }
         }
 
@@ -59,14 +57,14 @@ namespace FormulaOne
         {
             if(e.KeyCode == Keys.Space)
             {
-                Gravity = -7;
+                rbl.Gravity = -7;
             }
         }
         private void GameKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
-                Gravity = 7;
+                rbl.Gravity = 7;
             }
         }
         private void EndGame()
@@ -76,7 +74,7 @@ namespace FormulaOne
             DialogResult result = OpenDialog();
             if (result == DialogResult.OK)
             {
-                Monaco monaco = new Monaco(MyTeam);
+                Monaco monaco = new Monaco(rbl.MyTeam);
                 monaco.Show();
                 Hide();
             }
@@ -86,63 +84,18 @@ namespace FormulaOne
             }
 
         }
-
-        public string RedBullStunt()
-        {
-            StringBuilder driverDiving = new StringBuilder();
-            driverDiving.Append(ExtensionMethods.ExtensionMethods.ReturnNameWithNickname(MyTeam.MyDriver.Name, MyTeam.MyDriver.Nickname));
-            driverDiving.Append(Constants.RedBullStuntText);
-            return driverDiving.ToString();
-        }
-
-        public string AssignPoints()
-        {
-            // actually assigning the points 
-            if(ScoreValue < 10)
-            {
-                MyTeam.Points = 10;
-            }
-            else if (ScoreValue < 20)
-            {
-                MyTeam.Points = 20;
-            }
-            else
-            {
-                MyTeam.Points = 40;
-            }
-
-            StringBuilder assignPoints = new StringBuilder();
-            assignPoints.Append(ExtensionMethods.ExtensionMethods.ReturnNameWithNickname(MyTeam.MyDriver.Name, MyTeam.MyDriver.Nickname));
-            assignPoints.Append(Constants.HasJustAddedText);
-            assignPoints.Append(MyTeam.Points);
-            assignPoints.Append(" Points To ");
-            assignPoints.Append(MyTeam.Name);
-            assignPoints.AppendLine();
-            assignPoints.Append(TeamSalaries());
-            return assignPoints.ToString();
-        }
         private DialogResult OpenDialog()
         {
+            rbl.GiveTeamPoints();
             StringBuilder message = new StringBuilder();
-            message.Append(AssignPoints());
+            message.Append(rbl.AssignPoints());
             message.AppendLine();
-            message.Append(RedBullStunt());
+            message.Append(rbl.RedBullStunt());
 
             DialogResult result = MessageBox.Show(message.ToString(), Constants.EndOfRace);
 
             return result;
         }
-        private string TeamSalaries()
-        {
-            StringBuilder salary = new StringBuilder();
-            salary.Append(MyTeam.MyTeamPrinciple.Name);
-            salary.Append(Constants.EnjoySalary);
-            salary.Append(MyTeam.MyTeamPrinciple.GetSalary());
-            salary.AppendLine();
-            salary.Append(MyTeam.MyDriver.Name);
-            salary.Append(Constants.EnjoySalary);
-            salary.Append(MyTeam.MyDriver.GetSalary());
-            return salary.ToString();
-        }
+        
     }
 }
