@@ -10,17 +10,14 @@ using System.Windows.Forms;
 
 namespace FormulaOne
 {
-    public partial class Monaco : Form, Interfaces.IMonacoSetup, Interfaces.IMonacoPodiumRitual
+    public partial class Monaco : Form
     {
-        int Gravity = 17;
-        int ScoreValue = 0;
-        const int Range = 200;
-        Team MyTeam;
+        MonacoBusniessLogic monacoBL = new MonacoBusniessLogic();
         public Monaco(Team team)
         {
-            MyTeam = team;
-            DialogResult resilt = SettingUpMonaco();
-            if (resilt == DialogResult.OK)
+            monacoBL.MyTeam = team;
+            DialogResult result = SettingUpMonaco();
+            if (result == DialogResult.OK)
             {
                 InitializeComponent();
                 Color Blue = ExtensionMethods.ExtensionMethods.ReturnColor(CustomColors.ColorList[Constants.Blue]);
@@ -37,30 +34,30 @@ namespace FormulaOne
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-            BarrierLeft.Top += Gravity;
-            BarrierRight.Top += Gravity;
-            MiddleBarrier.Top += Gravity;
-            Score.Text = "Score: " + ScoreValue; 
-            if(Math.Abs(MiddleBarrier.Top - BarrierLeft.Top) <= Range)
+            BarrierLeft.Top += monacoBL.Gravity;
+            BarrierRight.Top += monacoBL.Gravity;
+            MiddleBarrier.Top += monacoBL.Gravity;
+            Score.Text = "Score: " + monacoBL.ScoreValue; 
+            if(Math.Abs(MiddleBarrier.Top - BarrierLeft.Top) <= monacoBL.Range)
             {
-                MiddleBarrier.Top -= Range;
+                MiddleBarrier.Top -= monacoBL.Range;
             }
 
             if(BarrierLeft.Top >= 900)
             {
                 BarrierLeft.Top = 12;
-                ScoreValue++;
+                monacoBL.ScoreValue++;
             }
             if (BarrierRight.Bottom >= 905)
             {
                 BarrierRight.Top = 10;
-                ScoreValue++;
+                monacoBL.ScoreValue++;
             }
 
             if(MiddleBarrier.Top >= 910)
             {
                 MiddleBarrier.Top = -30;
-                ScoreValue++;
+                monacoBL.ScoreValue++;
             }
             if (Car.Bounds.IntersectsWith(BarrierLeft.Bounds) ||
                 Car.Bounds.IntersectsWith(BarrierRight.Bounds) ||
@@ -98,71 +95,16 @@ namespace FormulaOne
             LastDialog();
         }
 
-        public string YachtsDocking()
-        {
-            return Constants.RichMonégasques;
-        }
 
-        public string TrackBeingPaved()
-        {
-            return Constants.ChangingingTarmac;
-        }
-
-        public string CarSetup()
-        {
-            return Constants.HighDownForce;
-        }
-
-        public string DiveIntoPool()
-        {
-            StringBuilder message = new StringBuilder();
-            message.Append(ExtensionMethods.ExtensionMethods.ReturnNameWithNickname(MyTeam.MyDriver.Name, MyTeam.MyDriver.Nickname));
-            message.Append(Constants.DriverPool);
-            return message.ToString();
-
-        }
-
-        public string AssignPoints()
-        {
-            // actually assigning the points 
-            if (ScoreValue < 5)
-            {
-                MyTeam.Points += 10;
-            }
-            else if (ScoreValue < 10)
-            {
-                MyTeam.Points += 20;
-            }
-            else
-            {
-                MyTeam.Points += 40;
-            }
-
-            StringBuilder assignPoints = new StringBuilder();
-            assignPoints.Append(ExtensionMethods.ExtensionMethods.ReturnNameWithNickname(MyTeam.MyDriver.Name, MyTeam.MyDriver.Nickname));
-            assignPoints.Append(Constants.HasJustAddedText);
-            assignPoints.Append(MyTeam.Points);
-            assignPoints.Append(" Points To ");
-            assignPoints.Append(MyTeam.Name);
-
-            return assignPoints.ToString();
-        }
         private DialogResult SettingUpMonaco()
         {
-            StringBuilder message = new StringBuilder();
-            message.Append(TrackBeingPaved());
-            message.Append(CarSetup());
-            message.Append(YachtsDocking());
-            return MessageBox.Show(message.ToString(), Constants.SettingUpMonaco);
+
+            return MessageBox.Show(monacoBL.SettingUpMonacoText(), Constants.SettingUpMonaco);
         }
         private DialogResult LastDialog()
         {
-            StringBuilder message = new StringBuilder();
-            message.Append(AssignPoints());
-            message.AppendLine();
-            message.Append(DiveIntoPool());
-
-            DialogResult result = MessageBox.Show(message.ToString(), Constants.EndOfRace);
+            
+            DialogResult result = MessageBox.Show(monacoBL.LastDialogText(), Constants.EndOfRace);
 
             return result;
         }

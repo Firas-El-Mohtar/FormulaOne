@@ -12,8 +12,6 @@ namespace FormulaOne
 {
     public partial class InitialScreen : Form
     {
-        //private Team MyTeam;
-        //IAccount account;
         InitialScreenSetups setup = new InitialScreenSetups();
         public InitialScreen()
         {
@@ -53,8 +51,6 @@ namespace FormulaOne
         }
         private void Done_Click(object sender, EventArgs e)
         {
-
-            //MyTeam = BuildMyTeam();
             BuildMyTeam();
             DialogResult result = TransitionalScreen();
 
@@ -99,7 +95,7 @@ namespace FormulaOne
             string Nickname = DriverNickname.Text;
 
             setup.SetupDriver(Name, age, Gender, championshipswon, Nickname);
-            //return setup.SetupDriver(Name, age, Gender, championshipswon, Nickname);
+           
         }
 
         private void SetUpTeamPrinciple()
@@ -111,7 +107,7 @@ namespace FormulaOne
             string education = TeamPrincipleEducation.Text;
             int yearsOE = int.Parse(TeamPrincipleYOE.Text);
             setup.SetupTeamPrinciple(tname, tage, tgender, education, yearsOE);
-            //return setup.SetupTeamPrinciple(tname, tage, tgender, education, yearsOE);
+           
         }
 
         private void SetUpCar()
@@ -123,7 +119,7 @@ namespace FormulaOne
             Car.BodyKit PrivateKit = (Car.BodyKit)CBABodyKit.SelectedIndex;
             string StringKit = PrivateKit.ToString();
             setup.SetupCar(StringChassis, StringEngine, StringKit);
-            //return setup.SetupCar(StringChassis, StringEngine, StringKit);
+
         }
 
 

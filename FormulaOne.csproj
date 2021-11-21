@@ -53,6 +53,7 @@
     <Compile Include="Accounts\IAccount.cs" />
     <Compile Include="InitialScreenBusinessLogic\IInitialScreenSetups.cs" />
     <Compile Include="InitialScreenBusinessLogic\InitialScreenSetups.cs" />
+    <Compile Include="MonacoBusinessLogic\MonacoBusniessLogic.cs" />
     <Compile Include="Person\DriverNumber.cs" />
     <Compile Include="RedBullRingBusinessLogic\RedbullRingLogic.cs" />
     <Compile Include="Salaries\DriverSalary.cs" />
@@ -116,7 +117,6 @@
       <DependentUpon>RedBullRing.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ProjectClassDiagram.cd" />
-    <None Include="ProjectDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
