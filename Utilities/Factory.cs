@@ -8,15 +8,11 @@ namespace FormulaOne
 {
     public static class Factory
     {
-        public static InitialScreenSetups CreateInitialScreenSetup()
-        {
-            return new InitialScreenSetups();
-        }
-        public static DriverAccount CreateDriverAccount()
+        public static IAccount CreateDriverAccount()
         {
             return new DriverAccount();
         }
-        public static TeamPrincipleAccount CreateTeamPrincipleAccout()
+        public static IAccount CreateTeamPrincipleAccout()
         {
             return new TeamPrincipleAccount();
         }

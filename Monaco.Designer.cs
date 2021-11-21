@@ -36,7 +36,7 @@
             this.BarrierRight = new System.Windows.Forms.PictureBox();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.MiddleBarrier = new System.Windows.Forms.PictureBox();
-            this.Score = new System.Windows.Forms.Label();
+            this.MonacoScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RightCurb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftCurb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Car)).BeginInit();
@@ -106,16 +106,16 @@
             this.MiddleBarrier.TabIndex = 5;
             this.MiddleBarrier.TabStop = false;
             // 
-            // Score
+            // MonacoScore
             // 
-            this.Score.AutoSize = true;
-            this.Score.BackColor = System.Drawing.Color.LimeGreen;
-            this.Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.Score.Location = new System.Drawing.Point(21, 18);
-            this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(62, 22);
-            this.Score.TabIndex = 6;
-            this.Score.Text = "Score:";
+            this.MonacoScore.AutoSize = true;
+            this.MonacoScore.BackColor = System.Drawing.Color.LimeGreen;
+            this.MonacoScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.MonacoScore.Location = new System.Drawing.Point(21, 18);
+            this.MonacoScore.Name = "MonacoScore";
+            this.MonacoScore.Size = new System.Drawing.Size(62, 22);
+            this.MonacoScore.TabIndex = 6;
+            this.MonacoScore.Text = "Score:";
             // 
             // Monaco
             // 
@@ -123,7 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FormulaOne.Properties.Resources.Top_View;
             this.ClientSize = new System.Drawing.Size(1019, 746);
-            this.Controls.Add(this.Score);
+            this.Controls.Add(this.MonacoScore);
             this.Controls.Add(this.MiddleBarrier);
             this.Controls.Add(this.BarrierRight);
             this.Controls.Add(this.BarrierLeft);
@@ -155,6 +155,6 @@
         private System.Windows.Forms.PictureBox BarrierRight;
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.PictureBox MiddleBarrier;
-        private System.Windows.Forms.Label Score;
+        private System.Windows.Forms.Label MonacoScore;
     }
 }

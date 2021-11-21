@@ -8,6 +8,7 @@ namespace FormulaOne
 {
     public class MonacoBusniessLogic : Interfaces.IMonacoSetup, Interfaces.IMonacoPodiumRitual
     {
+        private int points;
         public int Gravity { get; set; }
         public int ScoreValue { get; set; }
 
@@ -23,25 +24,30 @@ namespace FormulaOne
         {
             if (ScoreValue < 5)
             {
+                points = 10;
                 MyTeam.Points += 10;
             }
             else if (ScoreValue < 10)
             {
+                points = 20;
                 MyTeam.Points += 20;
             }
             else
             {
+                points = 40;
                 MyTeam.Points += 40;
             }
 
             StringBuilder assignPoints = new StringBuilder();
             assignPoints.Append(ExtensionMethods.ExtensionMethods.ReturnNameWithNickname(MyTeam.MyDriver.Name, MyTeam.MyDriver.Nickname));
             assignPoints.Append(Constants.HasJustAddedText);
-            assignPoints.Append(MyTeam.Points);
+            assignPoints.Append(points);
             assignPoints.Append(" Points To ");
             assignPoints.Append(MyTeam.Name);
-
+            assignPoints.Append(" Making the total Points = ");
+            assignPoints.Append(MyTeam.Points);
             return assignPoints.ToString();
+           
         }
 
         public string CarSetup()

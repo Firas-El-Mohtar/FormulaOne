@@ -32,5 +32,7 @@ namespace FormulaOne
         public People.Driver MyDriver { get; }
         public People.TeamPrinciple MyTeamPrinciple { get; }
         public int Points { get; set; }
+
+       
     }
 }

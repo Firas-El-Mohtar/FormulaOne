@@ -116,6 +116,7 @@
     <EmbeddedResource Include="RedBullRing.resx">
       <DependentUpon>RedBullRing.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="ProjectClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
