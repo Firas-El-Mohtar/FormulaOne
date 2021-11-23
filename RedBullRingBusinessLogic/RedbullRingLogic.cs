@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FormulaOne
 {
-    public class RedbullRingLogic: Interfaces.IRedBullRingPodiumRitual
+    public class RedbullRingLogic: IRedBullRingPodiumRitual
     {
         public RedbullRingLogic()
         {

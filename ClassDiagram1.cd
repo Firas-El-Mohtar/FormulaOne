@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="FormulaOne.DriverAccount" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8.75" Y="7.25" Width="1.5" />
+  <Class Name="FormulaOne.DriverAccount" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Accounts\DriverAccount.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.1" />
   </Class>
-  <Class Name="FormulaOne.TeamPrincipleAccount" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7" Y="7.25" Width="1.5" />
+  <Class Name="FormulaOne.TeamPrincipleAccount" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="11.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Accounts\TeamPrincipleAccount.cs</FileName>
@@ -17,7 +17,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="FormulaOne.InitialScreen" Collapsed="true">
-    <Position X="9.75" Y="5.25" Width="1.5" />
+    <Position X="11.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ADhCBCAAACgAADgAkJCAABALICQAAQAIAlAAKACAAIA=</HashCode>
       <FileName>InitialScreen.cs</FileName>
@@ -26,8 +26,8 @@
       <Field Name="setup" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="FormulaOne.InitialScreenSetups" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="5.25" Width="1.5" />
+  <Class Name="FormulaOne.InitialScreenSetups" BaseTypeListCollapsed="true">
+    <Position X="9" Y="7.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAIBAAMACAAAAEBgAAAAAAAAAEgAAAAAAARAAIAAA=</HashCode>
       <FileName>InitialScreenBusinessLogic\InitialScreenSetups.cs</FileName>
@@ -39,7 +39,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="FormulaOne.Monaco" Collapsed="true">
-    <Position X="11.75" Y="5.75" Width="1.5" />
+    <Position X="16.75" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACQAAAAAAACIAAAiQAIAEEAQAAIAABAYEAA=</HashCode>
       <FileName>Monaco.cs</FileName>
@@ -48,8 +48,8 @@
       <Field Name="monacoBL" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="FormulaOne.MonacoBusniessLogic" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="13.5" Y="5.75" Width="1.5" />
+  <Class Name="FormulaOne.MonacoBusniessLogic" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="10.25" Width="1.5" />
     <Members>
       <Field Name="points" Hidden="true" />
     </Members>
@@ -63,14 +63,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="FormulaOne.Program">
-    <Position X="0.75" Y="5.25" Width="1.5" />
+    <Position X="13.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FormulaOne.RedBullRing" Collapsed="true">
-    <Position X="13.75" Y="7" Width="1.5" />
+    <Position X="12.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQCCQFAAgEIACIAAACAAAAAAAAAAAAAAAQEAA=</HashCode>
       <FileName>RedBullRing.cs</FileName>
@@ -79,16 +79,26 @@
       <Field Name="rbl" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="FormulaOne.RedbullRingLogic" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12" Y="7" Width="1.5" />
+  <Class Name="FormulaOne.RedbullRingLogic" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAYAAAIAAAABAAAAAAAAAEAEgAAAAAAAAAAAAA=</HashCode>
       <FileName>RedBullRingBusinessLogic\RedbullRingLogic.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="FormulaOne.Team" Collapsed="true">
-    <Position X="5.25" Y="4.25" Width="1.5" />
+  <Class Name="FormulaOne.Team">
+    <Position X="6.5" Y="7.75" Width="1.5" />
+    <AssociationLine Name="MyDriver" Type="People.Driver">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.963" Y="0.155" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="MyTeamPrinciple" Type="People.TeamPrinciple">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.641" Y="-1.093" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAMgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Team\Team.cs</FileName>
@@ -99,8 +109,8 @@
       <Property Name="MyTeamPrinciple" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="FormulaOne.Constants" Collapsed="true">
-    <Position X="11.25" Y="8.75" Width="1.5" />
+  <Class Name="FormulaOne.Constants">
+    <Position X="19.75" Y="4" Width="1.5" />
     <Members>
       <Field Name="EndOfRace" Hidden="true" />
     </Members>
@@ -112,32 +122,29 @@
       <Field Name="EndOfRace" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="FormulaOne.CustomColors" Collapsed="true">
-    <Position X="14.75" Y="8.75" Width="1.5" />
+  <Class Name="FormulaOne.CustomColors">
+    <Position X="15.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Utilities\CustomColors.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FormulaOne.Factory" Collapsed="true">
-    <Position X="0.75" Y="8.75" Width="1.5" />
+  <Class Name="FormulaOne.Factory">
+    <Position X="17.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utilities\Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Car.Car" Collapsed="true">
-    <Position X="3" Y="5" Width="1.5" />
+  <Class Name="Car.Car">
+    <Position X="3.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Car\Car.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="People.Driver" Collapsed="true">
-    <Position X="5.5" Y="3" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+  <Class Name="People.Driver">
+    <Position X="7.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABgAAAAAAAAAAIAAACAAAAQAAAAAAAAEAAAAEAAAA=</HashCode>
       <FileName>Person\Driver.cs</FileName>
@@ -147,8 +154,8 @@
       <Property Name="DriverSalary" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="People.DriverNumber" Collapsed="true">
-    <Position X="6.25" Y="1" Width="1.5" />
+  <Class Name="People.DriverNumber">
+    <Position X="9" Y="2.25" Width="1.5" />
     <Members>
       <Field Name="driverNumber" Hidden="true" />
     </Members>
@@ -161,15 +168,15 @@
       <Field Name="driverNumber" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="People.Person" Collapsed="true">
-    <Position X="4.25" Y="1.75" Width="1.5" />
+  <Class Name="People.Person">
+    <Position X="6.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAEAAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Person\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="People.TeamPrinciple" Collapsed="true">
-    <Position X="3" Y="3" Width="1.5" />
+  <Class Name="People.TeamPrinciple">
+    <Position X="5.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAAACAAAAAAAAAAAAAIAgAAEAAAA=</HashCode>
       <FileName>Person\TeamPrinciple.cs</FileName>
@@ -178,128 +185,122 @@
       <Property Name="tpSalary" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="People.DriverSalary" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.25" Y="3.25" Width="1.5" />
+  <Class Name="People.DriverSalary" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Salaries\DriverSalary.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.34" />
   </Class>
-  <Class Name="People.TeamPrincipleSalaryCalculator" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="1.25" Y="3.25" Width="1.5" />
+  <Class Name="People.TeamPrincipleSalaryCalculator" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="3.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Salaries\TeamPrincipleSalaryCalculator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="FormulaOne.Properties.Resources" Collapsed="true">
-    <Position X="9.5" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAQBAAAAACgAAEAAAABEAAAAQAAAAAAAAAAgAQAAIA=</HashCode>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ExtensionMethods.ExtensionMethods" Collapsed="true">
-    <Position X="13" Y="8.75" Width="1.5" />
+  <Class Name="ExtensionMethods.ExtensionMethods">
+    <Position X="11" Y="2.25" Width="2" />
     <TypeIdentifier>
       <HashCode>IAAAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utilities\ExtensionMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="FormulaOne.IAccount" Collapsed="true">
-    <Position X="7.5" Y="6.25" Width="1.5" />
+  <Interface Name="FormulaOne.IAccount">
+    <Position X="11.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Accounts\IAccount.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="FormulaOne.IInitialScreenSetups" Collapsed="true">
-    <Position X="5.75" Y="5.25" Width="1.5" />
+  <Interface Name="FormulaOne.IInitialScreenSetups">
+    <Position X="6.5" Y="10.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAABAAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>InitialScreenBusinessLogic\IInitialScreenSetups.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="FormulaOne.IGrandPrixPodiumRitual" Collapsed="true">
-    <Position X="11.25" Y="3" Width="1.5" />
+  <Interface Name="FormulaOne.IGrandPrixPodiumRitual">
+    <Position X="16.25" Y="13" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IGrandPrixPodiumRitual.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="FormulaOne.IGrandPrixSetup" Collapsed="true">
-    <Position X="9.25" Y="3" Width="1.5" />
+  <Interface Name="FormulaOne.IGrandPrixSetup">
+    <Position X="16.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IGrandPrixSetup.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="FormulaOne.Interfaces.IMonacoPodiumRitual" Collapsed="true">
-    <Position X="11.25" Y="2" Width="1.5" />
+  <Interface Name="FormulaOne.Interfaces.IMonacoPodiumRitual">
+    <Position X="17.75" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Interfaces\IMonacoPodiumRitual.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="FormulaOne.Interfaces.IMonacoSetup" Collapsed="true">
-    <Position X="9.25" Y="2" Width="1.5" />
+  <Interface Name="FormulaOne.Interfaces.IMonacoSetup">
+    <Position X="18" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Interfaces\IMonacoSetup.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="FormulaOne.Interfaces.IRedBullRingPodiumRitual" Collapsed="true">
-    <Position X="11.25" Y="4" Width="1.5" />
+  <Interface Name="FormulaOne.Interfaces.IRedBullRingPodiumRitual">
+    <Position X="15.25" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IRedBullRingPodiumRitual.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="FormulaOne.Interfaces.IRedBullRingSetup" Collapsed="true">
-    <Position X="9.25" Y="4" Width="1.5" />
+  <Interface Name="FormulaOne.Interfaces.IRedBullRingSetup">
+    <Position X="15.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Interfaces\IRedBullRingSetup.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="People.IDriverSalary" Collapsed="true">
-    <Position X="7.25" Y="2.25" Width="1.5" />
+  <Interface Name="People.IDriverSalary">
+    <Position X="10" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Salaries\IDriverSalary.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="People.ITeamPrincipleSalaryCalculator" Collapsed="true">
-    <Position X="1.25" Y="2.25" Width="1.5" />
+  <Interface Name="People.ITeamPrincipleSalaryCalculator">
+    <Position X="2.75" Y="2.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Salaries\ITeamPrincipleSalaryCalculator.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="Car.BodyKit" Collapsed="true">
-    <Position X="2.5" Y="8.75" Width="1.5" />
+  <Enum Name="Car.BodyKit">
+    <Position X="13.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAACAhAAAEAAAIAA=</HashCode>
       <FileName>Car\BodyKit.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Car.Chassis" Collapsed="true">
-    <Position X="4.25" Y="8.75" Width="1.5" />
+  <Enum Name="Car.Chassis">
+    <Position X="15" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAEAACAAAAAEAAAIAA=</HashCode>
       <FileName>Car\Chassis.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Car.Engine" Collapsed="true">
-    <Position X="6" Y="8.75" Width="1.5" />
+  <Enum Name="Car.Engine">
+    <Position X="16.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAAAAIAAAAAAAAAAAAAAAAAAEAEAAAA=</HashCode>
       <FileName>Car\Engine.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="People.Gender" Collapsed="true">
-    <Position X="7.75" Y="8.75" Width="1.5" />
+  <Enum Name="People.Gender">
+    <Position X="18.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Person\Gender.cs</FileName>

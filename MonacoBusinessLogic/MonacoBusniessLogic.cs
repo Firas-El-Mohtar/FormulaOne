@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FormulaOne
 {
-    public class MonacoBusniessLogic : Interfaces.IMonacoSetup, Interfaces.IMonacoPodiumRitual
+    public class MonacoBusniessLogic : IMonacoSetup, IMonacoPodiumRitual
     {
         private int points;
         public int Gravity { get; set; }

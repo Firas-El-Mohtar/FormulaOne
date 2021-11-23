@@ -19,7 +19,8 @@ namespace FormulaOne
             InitializeDropBoxes();
             // Control all the Comboboxes that Begin with the string CB
             SetupComboBoxes();
-          
+    
+
         }
         private Color SetViewColor(string Color)
         {

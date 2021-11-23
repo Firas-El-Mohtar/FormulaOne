@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FormulaOne
 {
-    public class InitialScreenSetups : Interfaces.IRedBullRingSetup, IInitialScreenSetups
+    public class InitialScreenSetups : IRedBullRingSetup, IInitialScreenSetups
     {
         public Team MyTeam { get; set; }
         public Driver MyDriver { get; set; }

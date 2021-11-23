@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FormulaOne
 {
-    interface IInitialScreenSetups
+    public interface IInitialScreenSetups
     {
         void SetupDriver(string name, int age, string gender, int championshipswon, string nickname);
         void SetupTeamPrinciple(string name, int age, string gender, string education, int yearsOE);

@@ -26,8 +26,5 @@ namespace People
         {
             return tpSalary.CalculateSTPSalary(YearsOfExperience);
         }
-
-
-
     }
 }

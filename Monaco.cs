@@ -93,7 +93,18 @@ namespace FormulaOne
         private void EndGame()
         {
             GameTimer.Stop();
-            LastDialog();
+
+
+            DialogResult result = LastDialog();
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                Application.Exit();
+            }
+
         }
 
 
