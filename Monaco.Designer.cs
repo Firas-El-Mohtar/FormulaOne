@@ -94,7 +94,7 @@
             // GameTimer
             // 
             this.GameTimer.Enabled = true;
-            this.GameTimer.Interval = 50;
+            this.GameTimer.Interval = 10;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimerEvent);
             // 
             // MiddleBarrier
