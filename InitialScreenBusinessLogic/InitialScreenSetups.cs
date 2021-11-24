@@ -73,6 +73,8 @@ namespace FormulaOne
             message.AppendLine();
             SetAccount(Factory.CreateTeamPrincipleAccout());
             message.Append(account.CreateEmail(MyTeam.MyTeamPrinciple));
+            message.AppendLine();
+            message.Append(Constants.RedbullRingControls);
             return message.ToString();
         }
     }

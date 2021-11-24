@@ -86,6 +86,7 @@ namespace FormulaOne
             message.Append(TrackBeingPaved());
             message.Append(CarSetup());
             message.Append(YachtsDocking());
+            message.Append(Constants.MonacoControls);
             return message.ToString();
         }
     }

@@ -38,7 +38,7 @@ namespace FormulaOne
             BarrierLeft.Top += monacoBL.Gravity;
             BarrierRight.Top += monacoBL.Gravity;
             MiddleBarrier.Top += monacoBL.Gravity;
-            MonacoScore.Text = monacoBL.MyTeam.MyDriver.Name + "Score: " + monacoBL.ScoreValue; 
+            MonacoScore.Text = monacoBL.MyTeam.MyDriver.Name + " Score: " + monacoBL.ScoreValue; 
             if(Math.Abs(MiddleBarrier.Top - BarrierLeft.Top) <= monacoBL.Range)
             {
                 MiddleBarrier.Top -= monacoBL.Range;

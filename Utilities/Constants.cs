@@ -15,18 +15,20 @@ namespace FormulaOne
         public static string GameOver = " Game Over!!";
         public static string Congratulations = "Congratulations!!! ";
         public static string RedBullRingSetupTitle = "Setting Up The RedBull Ring";
-        public static string RedBullRingSettingUpCar = "We're Changing the car for more lift and less downforce, Rember Redbull gives you wings! Car number ";
+        public static string RedBullRingSettingUpCar = "We're Changing the car for more lift and less downforce, remember Redbull gives you wings! Car number ";
         public static string ClearOutSky = "Clearing Out The Sky";
         public static string PlaceBarriers = "Placing Barriers";
         public static string RedBullStuntText = " Now heads to the City Center to Perform the Traditional Redbull Donuts.";
         public static string HasJustAddedText = " Has just added ";
         public static string EndOfRace = "Grand Prix Wrap";
-        public static string RichMonégasques = "Rich Monégasques have arrived on their Yachts";
-        public static string ChangingingTarmac = "The Principality of Monaco is laying down new Tarmac in preperation for the weekend";
+        public static string RichMonégasques = "Rich Monégasques have arrived on their Yachts ";
+        public static string ChangingingTarmac = "The Principality of Monaco is laying down new Tarmac in preperation for the weekend ";
         public static string HighDownForce = "Teams Are setting up high downforce aerokits. ";
         public static string DriverPool = " Is now diving into the Pool ";
         public static string SettingUpMonaco = "Setting up Monaco";
         public static string GivenEmail = "The Following emails shall be used to communicate with the Drivers and Team Principle";
         public static string EnjoySalary = " will defenetly enjoy his salary of";
+        public static string RedbullRingControls = " Use the Space bar to defy Gravity ";
+        public static string MonacoControls = " Use the arrow keys to move the F1 Car ";
     }
 }
